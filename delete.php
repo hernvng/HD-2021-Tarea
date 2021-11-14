@@ -9,6 +9,6 @@ $sql="DELETE FROM tabla  WHERE id='$id'";
 $query=mysqli_query($con,$sql);
 
     if($query){
-        Header("Location: tablamod.php");
+        Header("Location: gestiondatos.php");
     }
 ?>
