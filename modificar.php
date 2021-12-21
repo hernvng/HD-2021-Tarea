@@ -48,7 +48,7 @@ $row=mysqli_fetch_array($query);
                                     <option>Otros</option>
                                 </select>
                                 <label for="fechanac">Fecha de nacimiento</label>
-                                <input type="date" class="form-control mb-3" name="fechanac" placeholder="Fecha de nacimiento" min="1910-01-01" max="2021-12-31" value="<?php echo $row['fechanac']  ?>">
+                                <input type="date" class="form-control mb-3" id="fecha" name="fechanac" placeholder="Fecha de nacimiento" min="1910-01-01" max="2021-12-31" value="<?php echo $row['fechanac']  ?>">
                                 <label for="edad">Edad</label>
                                 <input type="number" name="edad" id="edad" class="form-control input-sm" readonly="" value="<?php echo $row['edad']  ?>"/>
                                 <input type="submit" class="btn btn-primary btn-block" value="Modificar con estos datos">
@@ -56,6 +56,7 @@ $row=mysqli_fetch_array($query);
                     </form>
                     
                 </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src='Js/calcular_edad.js'></script>
     <script>
       function mostrarContrasena(){

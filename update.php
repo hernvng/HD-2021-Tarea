@@ -16,7 +16,7 @@ $edad=$_POST['edad'];
 $sql="UPDATE tabla SET nombrecompleto='$nombrecompleto',correo='$correo',contrasena='$contrasena',usuario='$usuario',rut='$rut',direccion='$direccion',sexo='$sexo',fechanac='$fechanac', edad='$edad'  WHERE id='$id'";
 $query=mysqli_query($con,$sql);
 
-    if($query){
-        Header("Location: gestiondatos.php");
-    }
+echo "<script type='text/javascript'>
+        window.location='gestiondatos.php';
+    </script>";
 ?>

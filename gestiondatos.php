@@ -82,10 +82,17 @@
                           <th><?php  echo $resultado['sexo']?></th>
                           <th><?php  echo $resultado['fechanac']?></th>
                           <th><?php  echo $resultado['edad']?></th>
-                          <th><a href="modificar.php?id=<?php echo $resultado['id'] ?>" class="btn btn-info">Modificar</a></th>
-                          <th><a href="delete.php?id=<?php echo $resultado['id'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
+                          <th><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editChildresn<?php echo $resultado['id']; ?>">
+                                  Modificar
+                              </button></th>
+                          <th><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteChildresn<?php echo $resultado['id']; ?>">
+                                  Eliminar
+                              </button></th>                                        
                         </tr>
                       </tbody>
+                      <!--Ventana Modal para la Alerta de Eliminar--->
+                      <?php include('modaldel.php'); ?>
+                      <?php  include('modalmod.php'); ?>
                     </table>
                   </div>
                   <?php } ?>
@@ -103,5 +110,46 @@
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="Js/jquery.min.js"></script>
+    <script src="Js/popper.min.js"></script>
+    <script src="Js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $(window).load(function() {
+            $(".cargando").fadeOut(1000);
+        });
+
+//Ocultar mensaje
+    setTimeout(function () {
+        $("#contenMsjs").fadeOut(1000);
+    }, 3000);
+
+
+
+    $('.btnBorrar').click(function(e){
+        e.preventDefault();
+        var id = $(this).attr("id");
+
+        var dataString = 'id='+ id;
+        url = "delete.php";
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: dataString,
+                success: function(data)
+                {
+                  window.location.href="gestiondatos.php";
+                  $('#respuesta').html(data);
+                }
+            });
+    return false;
+
+    });
+
+
+});
+</script>
 </body>
 </html>

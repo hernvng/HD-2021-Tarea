@@ -3,12 +3,10 @@
 include("conexion.php");
 $con=conectar();
 
-$id=$_GET['id'];
+$id=$_REQUEST['id'];
 
 $sql="DELETE FROM tabla  WHERE id='$id'";
 $query=mysqli_query($con,$sql);
 
-    if($query){
-        Header("Location: gestiondatos.php");
-    }
+
 ?>
