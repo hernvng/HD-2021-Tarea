@@ -14,7 +14,7 @@
 <div class="modal fade" id="editChildresn<?php echo $resultado['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header" style="background-color: red !important;">
+      <div class="modal-header" style="background-color: crimson !important;">
       <h5 class="modal-title">Modificar datos</h5>
       <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -32,8 +32,6 @@
                                 <input type="email" class="form-control mb-3" name="correo" placeholder="Correo" value="<?php echo $resultado['correo']  ?>">
                                 <label for="contrasena">Contraseña</label>
                                 <input type="text" class="form-control mb-3" name="contrasena" placeholder="Contraseña" minlength="8" id="password" value="<?php echo $resultado['contrasena']  ?>">
-                                <button class="btn btn-warning" type="button" onclick="mostrarContrasena()">Mostrar/Ocultar contraseña</button>
-                                <br>
                                 <label for="usuario">Nombre de usuario</label>
                                 <input type="text" class="form-control mb-3" name="usuario" placeholder="Nombre de usuario" value="<?php echo $resultado['usuario']  ?>">
                                 <label for="rut">RUT (Sin puntos y con guión)</label>
@@ -54,8 +52,8 @@
                 
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-success">Guardar Cambios</button>
             </div>
        </form>
 
@@ -64,14 +62,3 @@
 </div>
 <!---fin ventana Update --->
 <script src='Js/calcular_edad.js'></script>
-    <script>
-      function mostrarContrasena(){
-        var tipo = document.getElementById("password");
-        if(tipo.type == "password"){
-          tipo.type = "text";
-        }
-        else{
-          tipo.type = "password";
-        }
-      }
-    </script>

@@ -48,7 +48,7 @@
             <div class="card col-12 mt-5">
               <div class="card-body">
                 <?php 
-                $busqueda=mysqli_query($con,"SELECT * FROM tabla WHERE nombrecompleto LIKE LOWER('%".$_POST["buscar"]."%')");
+                $busqueda=mysqli_query($con,"SELECT * FROM tabla WHERE nombrecompleto LIKE LOWER('%".$_POST["buscar"]."%') OR sexo LIKE LOWER('%".$_POST["buscar"]."%') OR usuario LIKE LOWER('%".$_POST["buscar"]."%')");
                 $numero = mysqli_num_rows($busqueda); ?>
                 <h5 class="card-tittle">Resultados (<?php echo $numero; ?>)</h5>
                 <?php while ($resultado = mysqli_fetch_array($busqueda)){ ?>
